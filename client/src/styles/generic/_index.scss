@@ -1,0 +1,16 @@
+@import "helpers";
+
+* {
+  @apply outline-none
+        focus-visible:rounded-md
+        focus-visible:ring
+        focus-visible:ring-primaryLight;
+}
+
+body {
+  @apply text-base text-secondary font-normal;
+}
+
+hr {
+  @apply border-0 h-px bg-grayBorderLight my-10;
+}
