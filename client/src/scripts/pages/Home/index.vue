@@ -1,4 +1,8 @@
 <template>
+    <div class="flex items-center justify-center h-screen bg-[#222222] mobilehidden">
+        <div class="text-center text-white font-bold text-xl">Mobile em desenvolvimento</div>
+    </div>
+
     <div class="main">
         <div class="menu">
             <div class="logo flex flex-row">
@@ -15,18 +19,13 @@
             <div class="pages">
                 <a :class="['label', prefix.home]" href="#home" @click="menu('home')">Home</a>
                 <a :class="['label', prefix.explore]" href="#explore" @click="menu('explore')">Explore</a>
-                <!-- <div class="ml-4 mr-4 cursor-pointer" @click="userModal ? userModal = false : userModal = true">
-                    <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 11 14H9a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 10 19Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                    </svg>
-                </div> -->
             </div>
         </div>
 
         <div class="content">
             <div v-show="home" class="content-home">
                 <div class="pagetitle">
-                    <label class="title">Project ORION</label>
+                    <div class="title">Project ORION</div>
                 </div>
 
                 <div class="container">
@@ -106,584 +105,325 @@
                 </div>
 
             </div>
+
             <div v-show="explore" class="content-explore">
                 <div class="pagetitle">
-                    <label class="title">Explore</label>
+                    <div class="title">Explore</div>
                 </div>
 
                 <div class="cards">
-                    <div class="card cursor-pointer" @click="modalPousoLunar = true">
+                    <div class="card cursor-pointer" @click="pousoLunar = true, explore = false">
                         <div class="cardback"></div>
-                        <svg @click="modalPousoLunar = true" class="expandcard w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 1h4m0 0v4m0-4-5 5.243M5 15H1m0 0v-4m0 4 5.243-5"/>
-                        </svg>  
+                        <svg @click="pousoLunar = true, explore = false" class="expandcard w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                        </svg>
                         <div class="cardcontent">
                             <div>Pouso Lunar</div>
                         </div>
                     </div>
 
-                    <div class="card cursor-pointer" @click="modalCelestrak = true">
+                    <div class="card cursor-pointer" @click="twolines = true, explore = false">
                         <div class="cardback"></div>
-                        <svg @click="modalCelestrak = true" class="expandcard w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 1h4m0 0v4m0-4-5 5.243M5 15H1m0 0v-4m0 4 5.243-5"/>
-                        </svg>  
+                        <svg @click="twolines = true, explore = false" class="expandcard w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
+                        </svg>
                         <div class="cardcontent">
                             <div>Two Lines</div>
                         </div>
                     </div>
-
-                    <!-- <div class="card cursor-pointer" @click="modalSolarSystema = true">
-                        <div class="cardback"></div>
-                        <svg @click="modalSolarSystema = true" class="expandcard w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 1h4m0 0v4m0-4-5 5.243M5 15H1m0 0v-4m0 4 5.243-5"/>
-                        </svg>  
-                        <div class="cardcontent">
-                            <div>Sistema Solar</div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="card cursor-pointer" @click="modalPosicionamento = true">
-                        <div class="cardback"></div>
-                        <svg @click="modalPosicionamento = true" class="expandcard w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 1h4m0 0v4m0-4-5 5.243M5 15H1m0 0v-4m0 4 5.243-5"/>
-                        </svg>  
-                        <div class="cardcontent">
-                            <div>Posicionamento de Satélites</div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="card cursor-pointer" @click="modalManobras = true">
-                        <div class="cardback"></div>
-                        <svg @click="modalManobras = true" class="expandcard w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 1h4m0 0v4m0-4-5 5.243M5 15H1m0 0v-4m0 4 5.243-5"/>
-                        </svg>
-                        <div class="cardcontent">
-                            <div>Manobras Orbitais</div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="card cursor-pointer" @click="modalLagrange = true" >
-                        <div class="cardback"></div>
-                        <svg @click="modalLagrange = true" class="expandcard w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 1h4m0 0v4m0-4-5 5.243M5 15H1m0 0v-4m0 4 5.243-5"/>
-                        </svg>
-                        <div class="cardcontent">
-                            <div>Pontos de Lagrange</div>
-                        </div>
-                    </div> -->
                 </div>
 
             </div>
 
+            <div v-show="pousoLunar">
+                <div class="flex flex-row mt-10 ml-6">
+                    <div class="content-center ml-6 mr-6 cursor-pointer ">
+                        <svg  @click="pousoLunar = false, explore = true" class="scale-125 w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+                        </svg>
+                    </div>
+                    <div class="font-bold text-3xl text-white w-fit content-center ">Pouso Lunar</div>
+                </div>
 
+                <div class="flex flex-row mt-10 mb-10 w-[100%] h-[400px] justify-center">
+                    <LineChart :chart-data="data" :options="options" class="flex w-[50%] h-full" ref="pageChart"></LineChart>
+                    
+                    <div class="flex flex-col text-white justify-center p-20 align-middle">
+                        <div class="flex flex-row justify-center mb-6">
+                            <div class="w-fit mr-6">
+                                <input @click="axis='x'" type="radio" id="x" name="axis" value='x' checked>
+                                <label for="x">Eixo X</label>
+                            </div>
+
+                            <div class="w-fit">
+                                <input  @click="axis='y'" type="radio" id="y" name="axis" value="y">
+                                <label for="y">Eixo Y</label>
+                            </div>
+                        </div>
+
+                        <div v-if="axis == 'x'">
+                            <div class="text-black">
+                                <div class="flex flex-row mb-4 justify-center">
+                                    <div class="flex mr-4 items-center w-20 text-white">Mínimo: </div>
+                                    <input class="flex input rounded-md p-1 border-2 border-black w-30" id="graph_min" type="number">
+                                </div>
+
+                                <div class="flex flex-row mb-4 justify-center">
+                                    <div class="flex mr-4 items-center w-20 text-white">Máximo: </div>
+                                    <input class="flex input rounded-md p-1 w-30 border-2 border-black" id="graph_max" type="number">
+                                </div>
+
+                                <div class="flex flex-row mb-4 justify-center">
+                                    <div class="flex mr-4 items-center w-20 text-white">Step: </div>
+                                    <input class="flex input rounded-md p-1 w-30 border-2 border-black" id="graph_stepsize" type="number">
+                                </div>
+
+                                <div class="flex flex-row mb-4 justify-center">
+                                    <button @click="graphRangeX" class="text-white border-2 border-white rounded-lg p-1 font-bold h-fit w-60 mt-4 mb-6">Modificar</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div v-if="axis == 'y'">
+                            <div class="flex-col text-black">
+                                <div class="flex flex-row mb-4 justify-center">
+                                    <div class="flex mr-4 items-center w-20 text-white">Mínimo: </div>
+                                    <input class="flex input rounded-md p-1 border-2 border-black w-30" id="graph_min_y" type="text">
+                                </div>
+
+                                <div class="flex flex-row mb-4 justify-center">
+                                    <div class="flex mr-4 items-center w-20  text-white">Máximo: </div>
+                                    <input class="flex input rounded-md p-1 w-30 border-2 border-black" id="graph_max_y" type="text">
+                                </div>
+
+                                <div class="flex flex-row mb-4 justify-center">
+                                    <div class="flex mr-4 items-center w-20  text-white">Step: </div>
+                                    <input class="flex input rounded-md p-1 w-30 border-2 border-black" id="graph_stepsize_y" type="text">
+                                </div>
+
+                                <div class="flex flex-row mb-4 justify-center">
+                                    <button @click="graphRangeY" class="text-white border-2 border-white rounded-lg p-1 font-bold h-fit w-60 mt-4 mb-6">Modificar</button>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="w-full flex justify-center">
+                            <button @click="resetGraph" class="border-2 border-white text-white rounded-lg p-1 font-bold h-fit w-40 mt-4 mb-6">Apagar curvas</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="flex flex-row w-full ml-10 mr-10">
+                    <div class="cpouso-content flex flex-col items-center justify-center w-[50%]">
+                        <span class="text-white font-semibold text-xl mb-10">Criar curvas de pouso suave</span>
+                        <div class="flex flex-col text-black items-center">
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center w-20 text-white">Curva: </div>
+                                <input class="input rounded-md p-1 mr-4" id="ps_curva_cor" type="color">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center w-20 text-white">Label: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="ps_label" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center w-20 text-white">Massa: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="ps_massa" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center w-20 text-white">Gravidade: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="ps_gravidade" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center w-20 text-white">Intensidade: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="ps_intensidade" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center w-20 text-white">Ângulo: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="ps_angulo" type="text">
+                            </div>
+                        </div>
+                        <button @click="curvaPousoSuave" class="border-2 border-white text-white rounded-lg p-1 font-bold h-fit w-60 mt-4 mb-6">Calcular</button>
+                    </div>
+
+                    <div class="cvel-content flex flex-col items-center w-[50%]">
+                        <span class="text-white font-semibold text-xl mb-10">Criar curvas de velocidade</span>
+                        <div class="flex flex-row text-black items-center">
+                            <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
+                                <div class="first-line:flex mr-4 items-center text-white">Curva: </div>
+                                <input class="input rounded-md p-1 mr-4" id="cv_curva_cor" type="color">
+                            </div>
+
+                            <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
+                                <div class="first-line:flex mr-4 items-center text-white">Ponto: </div>
+                                <input class="input rounded-md p-1" id="cv_point_cor" type="color">
+                            </div>
+
+                        </div>
+                        <div class="flex flex-col items-end mr-28">
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center text-white">Label: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="cv_label" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center text-white">Altura inicial: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="cv_altura_inicial" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center text-white">Velocidade inicial: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="cv_velocidade_inicial" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center text-white">Massa: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="cv_massa" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4 ">
+                                <div class="first-line:flex mr-4 items-center text-white">Gravidade: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="cv_gravidade" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center w-20 text-white">Intensidade: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="cv_intensidade" type="text">
+                            </div>
+
+                            <div class="flex flex-row mb-4">
+                                <div class="first-line:flex mr-4 items-center text-white">Ângulo: </div>
+                                <input class="input rounded-md p-1 border-2 border-black" id="cv_angulo" type="text">
+                            </div>
+                        </div>
+                        <button @click="curvaVelocidade" class="border-2 border-white text-white rounded-lg p-1 font-bold h-fit w-60 mt-4 mb-6">Calcular</button>
+                    </div>
+                </div>
+
+                <div class="h-28"></div>
+
+            </div>
+
+
+            <div v-show="twolines">
+                <div class="flex flex-row mt-10 ml-6 mb-10">
+                    <div class="content-center ml-6 mr-6 cursor-pointer ">
+                        <svg  @click="twolines = false, explore = true" class="scale-125 w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+                        </svg>
+                    </div>
+                    <div class="font-bold text-3xl text-white w-fit content-center ">Two Lines (Powered by Celestrak)</div>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <a class="mb-6"><img src="https://i.imgur.com/0p4MmcU.png" title="tle" /></a>
+                </div>
+
+                
+                <div class="flex-col cont-search-content mt-4 ml-10 mr-10">
+                    <select  @input="selectGroupCelestrak($event.target.value)" class="p-3 rounded-md w-full mb-8" name="celestrak-group">
+                        <option selected disabled hidden>Selecione um grupo</option>
+                        <option v-for="item in celestrakGroups" :value="item.code">{{ item.name }}</option>
+                    </select>
+
+                    <div v-if="selectedGroup != null">
+                        <select  @input="selectObjectCelestrak($event.target.value)" class="p-3 rounded-md w-full" name="celestrak-object">
+                            <option selected disabled hidden>Selecione um veículo espacial</option>
+                            <option v-for="item in celestrakObjects" :value="item.OBJECT_NAME">{{ item.OBJECT_NAME }}</option>
+                        </select>
+                    </div>
+                    <div v-else>
+                        <select class="p-3 rounded-md w-full" disabled>
+                            <option selected disabled hidden>Selecione um veiculo espacial</option>
+                        </select>
+                    </div>
+
+                    <div v-if="selectedObject != null">
+                        <div class="bgblack mt-6 p-4 rounded-md">
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Argumento do Perigeu:</div>
+                                <input :value="selectedObject.ARG_OF_PERICENTER" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">BStar:</div>
+                                <input :value="selectedObject.BSTAR" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Classificação:</div>
+                                <input :value="selectedObject.CLASSIFICATION_TYPE" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Excentricidade:</div>
+                                <input :value="selectedObject.ECCENTRICITY" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Element Set No:</div>
+                                <input :value="selectedObject.ELEMENT_SET_NO" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Tipo de ephemeris:</div>
+                                <input :value="selectedObject.EPHEMERIS_TYPE" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Epoch:</div>
+                                <input :value="selectedObject.EPOCH" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Inclinação:</div>
+                                <input :value="selectedObject.INCLINATION" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Anomalia Média:</div>
+                                <input :value="selectedObject.MEAN_ANOMALY" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Movimento Médio:</div>
+                                <input :value="selectedObject.MEAN_MOTION" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Movimento Médio DDot:</div>
+                                <input :value="selectedObject.MEAN_MOTION_DDOT" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Movimento Médio Dot:</div>
+                                <input :value="selectedObject.MEAN_MOTION_DOT" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">NORAD CAT ID:</div>
+                                <input :value="selectedObject.NORAD_CAT_ID" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Object ID:</div>
+                                <input :value="selectedObject.OBJECT_ID" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Object Name:</div>
+                                <input :value="selectedObject.OBJECT_NAME" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">RA do Nodo ascendente:</div>
+                                <input :value="selectedObject.RA_OF_ASC_NODE" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                            <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
+                                <div class="mr-4 w-full">Rev at Epoch:</div>
+                                <input :value="selectedObject.REV_AT_EPOCH" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
     </div>
-
-
-    <!-- Página do Pouso Lunar -->
-
-    <Modal v-show="modalPousoLunar">
-        <template v-slot:header>
-            <svg @click="modalPousoLunar = false" class="cursor-pointer w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="#222222" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 7-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-            </svg>
-        </template>
-
-        <template v-slot:body>
-            <div class="font-bold text-3xl mb-8">Pouso Lunar</div>
-
-            <div class="flex flex-row items-center mt-8">
-                <div @click="contentHS('cont')" class="w-6 h-6 black cursor-pointer cont rotate-180 mr-2">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
-                    </svg>
-                </div>
-
-                <div class="font-bold text-xl mr-4">Conteúdo</div>
-            </div>
-
-            <div class="flex-col hidden cont-content md:flex-row xl:flex-row">
-                <div class="flex-col mr-10">
-                    <div class="font-medium text-xl mb-4 mt-4">Simplificações</div>
-    
-                    <ul class="list ml-6">
-                        <li>O movimento é bidimensional</li>
-                        <li>A massa é constante</li>
-                    </ul>
-                </div>
-
-                <div class="flex-col">
-                    <div class="font-medium text-xl mb-4 mt-4">Equações</div>
-    
-                    <ul class="list ml-6">
-                        <li>Terceira Lei de Newton</li>
-                        <li>Torricelli</li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div class="flex flex-row items-center  mb-8 mt-8">
-                <div @click="contentHS('axis')" class="w-6 h-6 black cursor-pointer axis rotate-180 mr-2">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
-                    </svg>
-                </div>
-
-                <div class="font-bold text-xl mr-4">Range para eixo X</div>
-            </div>
-
-            <div class="hidden axis-content justify-center align-middle items-center">
-
-                <div class="flex-col md:flex-row xl:flex-row">
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="flex mr-4 items-center w-20 md:w-40 xl:w-40">Mínimo: </div>
-                        <input class="flex input rounded-md p-1 border-2 border-black w-30" id="graph_min" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="flex mr-4 items-center w-20 md:w-40 xl:w-40">Máximo: </div>
-                        <input class="flex input rounded-md p-1 w-30 border-2 border-black" id="graph_max" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="flex mr-4 items-center w-20 md:w-40 xl:w-40">Step: </div>
-                        <input class="flex input rounded-md p-1 w-30 border-2 border-black" id="graph_stepsize" type="text">
-                    </div>
-                </div>
-
-                <button @click="graphRangeX" class="border-2 border-black rounded-lg p-1 font-bold h-fit w-60 mt-4 mb-6">Modificar</button>
-
-            </div>
-
-            <div class="flex flex-row items-center  mb-8 ">
-                <div @click="contentHS('axisY')" class="w-6 h-6 black cursor-pointer axisY rotate-180 mr-2">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
-                    </svg>
-                </div>
-
-                <div class="font-bold text-xl mr-4">Range para eixo Y</div>
-            </div>
-
-            <div class="hidden axisY-content justify-center align-middle items-center">
-
-                <div class="flex-col md:flex-row xl:flex-row">
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="flex mr-4 items-center w-20 md:w-40 xl:w-40">Mínimo: </div>
-                        <input class="flex input rounded-md p-1 border-2 border-black w-30" id="graph_min_y" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="flex mr-4 items-center w-20 md:w-40 xl:w-40">Máximo: </div>
-                        <input class="flex input rounded-md p-1 w-30 border-2 border-black" id="graph_max_y" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="flex mr-4 items-center w-20 md:w-40 xl:w-40">Step: </div>
-                        <input class="flex input rounded-md p-1 w-30 border-2 border-black" id="graph_stepsize_y" type="text">
-                    </div>
-                </div>
-
-                <button @click="graphRangeY" class="border-2 border-black rounded-lg p-1 font-bold h-fit w-60 mt-4 mb-6">Modificar</button>
-
-            </div>
-            
-            <div class="flex flex-row items-center mb-8">
-                <div @click="contentHS('cvel')" class="w-6 h-6 black cursor-pointer cvel rotate-180 mr-2">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
-                    </svg>
-                </div>
-
-                <div class="font-bold text-xl mr-4">Curvas de Velocidade</div>
-            </div>
-
-            <div class="hidden cvel-content justify-center align-middle items-center">
-
-                <div class="flex-col md:flex-row xl:flex-row">
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Curva: </div>
-                        <input class="input rounded-md p-1 mr-4" id="cv_curva_cor" type="color">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Ponto: </div>
-                        <input class="input rounded-md p-1" id="cv_point_cor" type="color">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Label: </div>
-                        <input class="input rounded-md p-1 border-2 border-black w-1/2" id="cv_label" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Altura inicial: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="cv_altura_inicial" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Velocidade inicial: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="cv_velocidade_inicial" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Massa: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="cv_massa" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Gravidade: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="cv_gravidade" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Intensidade: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="cv_intensidade" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Ângulo: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="cv_angulo" type="text">
-                    </div>
-                </div>
-
-                <button @click="curvaVelocidade" class="border-2 border-black rounded-lg p-1 font-bold h-fit w-60 mt-4 mb-6">Calcular</button>
-
-            </div>
-
-
-            <div class="flex flex-row items-center mb-8">
-                <div @click="contentHS('cpouso')" class="w-6 h-6 black cursor-pointer cpouso rotate-180 mr-2">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
-                    </svg>
-                </div>
-
-                <div class="font-bold text-xl mr-4">Curvas de Pouso Suave</div>
-            </div>
-
-            <div class="hidden cpouso-content justify-center align-middle items-center">
-
-                <div class="flex-col md:flex-row xl:flex-row">
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Curva: </div>
-                        <input class="input rounded-md p-1 mr-4" id="ps_curva_cor" type="color">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Label: </div>
-                        <input class="input rounded-md p-1 border-2 border-black w-1/2" id="ps_label" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Massa: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="ps_massa" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Gravidade: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="ps_gravidade" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Intensidade: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="ps_intensidade" type="text">
-                    </div>
-
-                    <div class="flex flex-row mb-4 md:mr-4 xl:mr-4">
-                        <div class="first-line:flex mr-4 items-center w-20 md:w-40 xl:w-40">Ângulo: </div>
-                        <input class="input rounded-md p-1 w-1/2 border-2 border-black" id="ps_angulo" type="text">
-                    </div>
-                </div>
-
-                <button @click="curvaPousoSuave" class="border-2 border-black rounded-lg p-1 font-bold h-fit w-60 mt-4 mb-6">Calcular</button>
-            </div>
-
-            <div class="w-full flex justify-end">
-                <button @click="resetGraph" class="border-2 border-black rounded-lg p-1 font-bold h-fit w-40 mt-4 mb-6">Reset</button>
-            </div>
-
-            <LineChart :chart-data="data" :options="options" class="flex justify-center items-center w-full mt-2 mb-2 md:h-80 xl:h-80" ref="pageChart"></LineChart>
-
-        </template>
-
-        <template v-slot:footer>
-            <div></div>
-        </template>
-    </Modal>
-
-    <!-- Fim da página do pouso lunar -->
-
-    <!-- Inicio da página do twolines -->
-    <Modal v-show="modalCelestrak">
-        <template v-slot:header>
-            <svg @click="modalCelestrak = false" class="cursor-pointer w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="#222222" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 7-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-            </svg>
-
-            
-        </template>
-
-        <template v-slot:body>
-            <div class="font-bold text-3xl mb-8">Two Lines</div>
-
-            <div class="flex flex-row items-center mt-8 mb-8">
-                <div @click="contentHS('cont-cel')" class="w-6 h-6 black cursor-pointer cont-cel rotate-180 mr-2">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
-                    </svg>
-                </div>
-
-                <div class="font-bold text-xl mr-4">Conteúdo</div>
-            </div>
-
-            <div class="flex-col hidden cont-cel-content mb-8">
-                <a><img src="https://i.imgur.com/0p4MmcU.png" title="tle" /></a>
-
-                <div class="">Powered by
-                    <img class="h-12" src="https://i.pinimg.com/736x/bb/7c/4c/bb7c4cfe7485487929ff3af7e6cbe6f8.jpg" title="celestrak" />
-                </div>
-            </div>
-
-            <div class="flex flex-row items-center mt-2 mb-4">
-                <div @click="contentHS('cont-search')" class="w-6 h-6 black cursor-pointer cont-search rotate-180 mr-2">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
-                    </svg>
-                </div>
-
-                <div class="font-bold text-xl mr-4">Pesquisa</div>               
-            </div>
-
-            <div class="flex-col hidden cont-search-content mt-4">
-                <select  @input="selectGroupCelestrak($event.target.value)" class="p-3 rounded-md w-full mb-8" name="celestrak-group">
-                    <option selected disabled hidden>Selecione um grupo</option>
-                    <option v-for="item in celestrakGroups" :value="item.code">{{ item.name }}</option>
-                </select>
-
-                <div v-if="selectedGroup != null">
-                    <select  @input="selectObjectCelestrak($event.target.value)" class="p-3 rounded-md w-full" name="celestrak-object">
-                        <option selected disabled hidden>Selecione um veículo espacial</option>
-                        <option v-for="item in celestrakObjects" :value="item.OBJECT_NAME">{{ item.OBJECT_NAME }}</option>
-                    </select>
-                </div>
-                <div v-else>
-                    <select class="p-3 rounded-md w-full" disabled>
-                        <option selected disabled hidden>Selecione um veiculo espacial</option>
-                    </select>
-                </div>
-
-                <div v-if="selectedObject != null">
-                    <div class="bgblack mt-6 p-4 rounded-md">
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Argumento do Perigeu:</div>
-                            <input :value="selectedObject.ARG_OF_PERICENTER" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">BStar:</div>
-                            <input :value="selectedObject.BSTAR" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Classificação:</div>
-                            <input :value="selectedObject.CLASSIFICATION_TYPE" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Excentricidade:</div>
-                            <input :value="selectedObject.ECCENTRICITY" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Element Set No:</div>
-                            <input :value="selectedObject.ELEMENT_SET_NO" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Tipo de ephemeris:</div>
-                            <input :value="selectedObject.EPHEMERIS_TYPE" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Epoch:</div>
-                            <input :value="selectedObject.EPOCH" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Inclinação:</div>
-                            <input :value="selectedObject.INCLINATION" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Anomalia Média:</div>
-                            <input :value="selectedObject.MEAN_ANOMALY" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Movimento Médio:</div>
-                            <input :value="selectedObject.MEAN_MOTION" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Movimento Médio DDot:</div>
-                            <input :value="selectedObject.MEAN_MOTION_DDOT" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Movimento Médio Dot:</div>
-                            <input :value="selectedObject.MEAN_MOTION_DOT" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">NORAD CAT ID:</div>
-                            <input :value="selectedObject.NORAD_CAT_ID" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Object ID:</div>
-                            <input :value="selectedObject.OBJECT_ID" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Object Name:</div>
-                            <input :value="selectedObject.OBJECT_NAME" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">RA do Nodo ascendente:</div>
-                            <input :value="selectedObject.RA_OF_ASC_NODE" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                        <div class="flex flex-col md:flex-row xl:flex-row mb-4 text-gray-300">
-                            <div class="mr-4 w-full">Rev at Epoch:</div>
-                            <input :value="selectedObject.REV_AT_EPOCH" class="flex-1 p-2 bgblue rounded-md" type="text" disabled>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-
-
-        </template>
-
-        <template v-slot:footer>
-            <div></div>
-        </template>
-    </Modal>
-
-    <!-- <UserModal v-show="userModal">
-        <template v-slot:header>
-            <div></div>
-        </template>
-
-        <template v-slot:body>
-            <div class="flex flex-row mb-4">
-                <div :class="'cursor-pointer w-1/2 flex justify-center signin' + signin" @click="signin = true, register = false">
-                    <svg class="w-6 h-6 blue-icon mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 8h6m-3 3V5m-6-.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0ZM5 11h3a4 4 0 0 1 4 4v2H1v-2a4 4 0 0 1 4-4Z"/>
-                    </svg>
-                    <a class="font-bold">Sign in</a>
-                </div>
-
-                <div :class="'cursor-pointer w-1/2 flex justify-center register' + register"  @click="signin = false, register = true">
-                    <svg class="w-6 h-6 blue-icon mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 15">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 7.5h11m0 0L8 3.786M12 7.5l-4 3.714M12 1h3c.53 0 1.04.196 1.414.544.375.348.586.82.586 1.313v9.286c0 .492-.21.965-.586 1.313A2.081 2.081 0 0 1 15 14h-3"/>
-                    </svg>
-                    <a class="font-bold">Register</a>
-                </div>
-            </div>
-
-            <div>
-                <div class="flex flex-col justify-center" v-if="signin">
-                    <a class="font-semibold mb-2 mt-2">Username</a>
-                    <input class="input rounded-md p-1 mb-2" type="text">
-
-                    <a class="font-semibold mb-2 mt-2">Password</a>
-                    <input class="input rounded-md p-1 mb-2" type="password">
-
-                    <a class="flex cursor-pointer justify-center font-semibold mt-1 mb-3">Forgot Password</a>
-
-                    <button class="border-2 border-black rounded-lg p-1 font-bold">Sign in</button>
-                </div>
-
-                <div class="flex flex-col justify-center" v-if="register">
-                    <a class="font-semibold mb-2 mt-2">Username</a>
-                    <input class="input rounded-md p-1 mb-2" type="text">
-
-                    <a class="font-semibold mb-2 mt-2">Password</a>
-                    <input class="input rounded-md p-1 mb-2" type="password">
-
-                    <a class="font-semibold mb-2 mt-2">Confirm Password</a>
-                    <input class="input rounded-md p-1 mb-2" type="password">
-
-                    <button class="border-2 border-black rounded-lg p-1 font-bold mt-3">Register</button>
-                </div>
-            </div>
-        </template>
-
-        <template v-slot:footer>
-            <div></div>
-        </template>
-    </UserModal> -->
-
-    <Modal v-show="modalSolarSystema">
-        <template v-slot:header>
-            <svg @click="modalSolarSystema = false" class="cursor-pointer w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="#222222" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 7-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-            </svg>
-        </template>
-
-        <template v-slot:body>
-            <div></div>
-        </template>
-
-        <template v-slot:footer>
-            <div></div>
-        </template>
-    </Modal>
-
-    <Modal v-show="modalPosicionamento">
-        <template v-slot:header>
-            <svg @click="modalPosicionamento = false" class="cursor-pointer w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="#222222" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 7-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-            </svg>
-        </template>
-
-        <template v-slot:body>
-            <div></div>
-        </template>
-
-        <template v-slot:footer>
-            <div></div>
-        </template>
-    </Modal>
-
-    <Modal v-show="modalManobras">
-        <template v-slot:header>
-            <svg @click="modalManobras = false" class="cursor-pointer w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="#222222" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 7-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-            </svg>
-        </template>
-
-        <template v-slot:body>
-            <div></div>
-        </template>
-
-        <template v-slot:footer>
-            <div></div>
-        </template>
-    </Modal>
-
-
-    <Modal v-show="modalLagrange">
-        <template v-slot:header>
-            <svg @click="modalLagrange = false" class="cursor-pointer w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                <path stroke="#222222" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 7-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-            </svg>
-        </template>
-
-        <template v-slot:body>
-            <div></div>
-        </template>
-
-        <template v-slot:footer>
-            <div></div>
-        </template>
-    </Modal>
-
 
 </template>
 <script>
@@ -702,6 +442,7 @@ export default {
     },
     data() {
         return {
+            axis: 'x',
             userModal: false,
             modalSolarSystema: false,
             modalPosicionamento: false,
@@ -731,6 +472,8 @@ export default {
             selectedGroup: null,
             selectedObject: null,
             home: true,
+            pousoLunar: false,
+            twolines: false,
             explore: false,
             signin: true,
             register: false,
@@ -747,13 +490,21 @@ export default {
                         display: true,
                         title: {
                             display: true,
-                            text: 'Velocidade Vertical'
+                            text: 'Velocidade Vertical',
+                            font: {
+                                size: 14,
+                                weight: 'bolder',
+                            }
                         },
                         type: 'linear',
                         min: -20,
                         max:10, // Define o range do eixo x
                         ticks: {
-                            stepSize: 2 // Define o intervalo entre os ticks
+                            stepSize: 2, // Define o intervalo entre os ticks
+                            font: {
+                                size: 14,
+                                weight: 'bolder'
+                            }
                         }
                     },
                     y: {
@@ -761,13 +512,21 @@ export default {
                         display: true,
                         title: {
                             display: true,
-                            text: 'Altitude'
+                            text: 'Altitude',
+                            font: {
+                                size: 14,
+                                weight: 'bolder'
+                            }
                         },
                         type: 'linear',
                         min: -20,
                         max:10, // Define o range do eixo x
                         ticks: {
-                            stepSize: 2 // Define o intervalo entre os ticks
+                            stepSize: 2, // Define o intervalo entre os ticks
+                            font: {
+                                size: 14,
+                                weight: 'bolder'
+                            }
                         }
                     }
                 },
@@ -780,8 +539,6 @@ export default {
                     legend: {
                         display: true,
                     },
-                    
-    
                 },
             }
         }
@@ -819,6 +576,8 @@ export default {
         },
         menu(ref){
             this.userModal = false
+            this.pousoLunar = false
+            this.twolines = false
 
             const menu = ['home', 'explore']
 

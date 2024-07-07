@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <canvas ref="chart"></canvas>
+    <div class="flex flex-wrap content-center">
+      <canvas class="bg-white rounded-lg p-4" ref="chart"></canvas>
     </div>
   </template>
   

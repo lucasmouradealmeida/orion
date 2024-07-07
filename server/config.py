@@ -22,7 +22,7 @@ AMBIENTE = str(os.getenv("AMBIENTE")).lower()
 
 class Settings(BaseSettings):
     # APP
-    APP_NAME: str = "aeroespacial"
+    APP_NAME: str = "orion"
     APP_VERSION: str = "v1.0.0"
     APP_DOMAIN: str = "portal"
 
