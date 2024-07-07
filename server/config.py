@@ -105,7 +105,7 @@ class Settings(BaseSettings):
     SESSION_REFRESH_REQUEST: bool = True  # Atualiza a sessão a cada solicitação para estender o tempo de inatividade
     SESSION_REFRESH_SECONDS: int = 1800  # Tempo de atualização personalizado em segundos (30 minutos)
     SESSION_USE_SIGNER: bool = True  # Usar assinatura de sessão para segurança
-    SESSION_COOKIE_NAME: str = "aeroespacial"  # Nome da sessão para segurança
+    SESSION_COOKIE_NAME: str = "orion"  # Nome da sessão para segurança
 
     if IS_DEV_MODE:
         SESSION_COOKIE_SECURE: bool = False
