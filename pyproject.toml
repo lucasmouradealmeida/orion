@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "aeroespacial"
+name = "orion"
 version = "0.1.0"
-description = "Site white-label em Python."
-authors = ["Douglas Panhota <douglas.panhota@ape11.com.br>"]
+description = "Python website."
+authors = ["Lucas Moura de Almeida <lucas.moura020@gmail.com>"]
 readme = "README.md"
 packages = [{ include = "server" }]
 
