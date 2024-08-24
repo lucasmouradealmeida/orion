@@ -1,0 +1,6 @@
+<aside class="sidebar sidebar__left">
+    <script>
+        addContext({ currentView: '{{ request.path }}', menu: JSON.parse('{{ ctx.menu|tojson|safe }}') })
+    </script>
+    <div id="module-sidebar"></div>
+</aside>

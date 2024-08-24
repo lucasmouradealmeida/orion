@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from typing import Any, Optional, Union
+from typing import Any, Union
 
 from flask import Request, session
 from pydantic import BaseModel, ConfigDict, PrivateAttr
 
 from server.config import Settings, get_config
-from server.core.exceptions import UserNotFoundError
+from server.resources.admin_resources import Menu
 
 model_config = ConfigDict(arbitrary_types_allowed=True)
 
@@ -17,6 +17,7 @@ class Context(BaseModel):
     model_config = model_config
 
     _token: str = ""
+    _menu: list[Menu] | None = None
     _internal_token: str = ""
     _is_request: bool = False
     _is_background: bool = False
@@ -108,6 +109,20 @@ class Context(BaseModel):
         # if self._scopes:
         #     self._scopes = []
         return self._scopes
+    
+    @property
+    def menu(self) -> list[Menu] | None:
+        """Opções de menu.
+
+        Returns:
+            list[Menu] | None: Lista de links das páginas do sistema.
+        """
+        from server.services.admin_service import menu_service
+
+        if not self._menu:
+            menu = menu_service.menu(self)
+            self._menu = [Menu(**item.dict()).to_dict(to_camelcase=True) for item in menu]
+        return self._menu
 
     @classmethod
     def from_request(cls, r: Request) -> Context:

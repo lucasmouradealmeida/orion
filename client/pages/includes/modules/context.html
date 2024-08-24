@@ -1,0 +1,29 @@
+<script>
+    function addContext(newContext) {
+        if (!window.__site__) window.__site__ = {}
+        if (!window.__site__.context) {
+            const siteContext = () => {
+                const handler = {
+                    get: function (target, prop, receiver) {
+                        return Reflect.get(...arguments)
+                    },
+                    set: function (target, prop, value, receiver) {
+                        return Reflect.set(...arguments)
+                    }
+                }
+                return new Proxy(window.__site__.context || {}, handler)
+            }
+            window.__site__.context = siteContext()
+        }
+
+        if (typeof newContext == 'string') {
+            const key = newContext
+            const value = arguments[1]
+            window.__site__.context[key] = value
+        } else if (typeof newContext === 'object' && newContext !== null) {
+            Object.assign(window.__site__.context, newContext)
+        } else {
+            throw new Error('Invalid context')
+        }
+    }
+</script>

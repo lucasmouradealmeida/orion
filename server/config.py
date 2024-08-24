@@ -4,10 +4,8 @@ from distutils.util import strtobool as stb
 from functools import cache
 from pathlib import Path
 
-from kombu import Queue
 from pydantic_settings import BaseSettings
 
-from server.core.utils.utils import getcall
 from server.enums.ambiente_enum import AmbienteEnum
 
 locale.setlocale(locale.LC_ALL, "pt_BR.UTF-8")
@@ -46,9 +44,9 @@ class Settings(BaseSettings):
     UNLOGGED_LOGIN: str = ""
 
     # WEB
-    # SESSION_SECRET: str = os.getenv(
-    #     "SESSION_SECRET", "47a9d370f17f69a542227d02a7ce8e2c9114168cfddc17eae7bc807818e2e58e"
-    # )
+    SESSION_SECRET: str = os.getenv(
+        "SESSION_SECRET", "47a9d370f17f69a542227d02a7ce8e2c9114168cfddc17eae7bc807818e2e58e"
+    )
     PAGE_NOT_FOUND_REDIRECT: str = "home.home"
     PAGE_NOT_FOUND_MESSAGE: str = "Pagina não encontrada!"
     PAGE_NOT_PERMISSION_REDIRECT: str = "home.home"

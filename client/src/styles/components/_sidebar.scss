@@ -1,0 +1,18 @@
+
+#module-sidebar {
+    @apply bg-[#222222];
+}
+
+.sidebar{
+    @apply bg-white shadow-lg max-h-full mt-[60px] lg:mt-0;
+    @apply flex flex-shrink-0 overflow-hidden;
+    @apply fixed inset-y-0 will-change-transform transform transition-all lg:static lg:z-auto lg:translate-x-0 lg:shadow-none;
+
+    &__left{
+        @apply left-0 -translate-x-full lg:translate-x-0;
+    }
+
+    &.isOpen{
+        @apply translate-x-0;
+    }
+}

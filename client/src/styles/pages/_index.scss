@@ -1,28 +1,12 @@
 @import "not-found";
 
-.main {
-    width: 100%;
-    @media (max-width: 600px) {
-        display: none;
-    }
-}
-
-.mobilehidden{
-    @media (min-width: 600px) {
-        display: none;
-    }
-}
-
-html {
-    overflow: hidden;
-}
 
 .container {
     display: flex;
     flex-wrap: wrap;
     color: #d3d3d3;
     font-size: 20px;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
 
     .title {
         width: 100%;
@@ -40,12 +24,6 @@ html {
     margin-bottom: 20px;
 }
 
-.content {
-    height: 100vh;
-    background-color: #222222;
-    overflow: auto;
-    margin-bottom: 200px;
-}
 
 .blue-icon {
     color: #324ab2;
