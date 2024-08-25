@@ -15,8 +15,8 @@ def menu(ctx: Context) -> list[Menu] | None:
                 "name": "Explore",
                 "icon": "Explore",
                  "submenu": [
-                    {"name": "Módulo 1", "icon": "mod1", "url": "/mod1"},
-                    {"name": "Módulo 2", "icon": "mod2", "url": "/mod2"},
+                    {"name": "Two Lines", "icon": "twolines", "url": "/twolines"},
+                    {"name": "Pouso Lunar", "icon": "pousolunar", "url": "/pousolunar"},
                 ],
             }
         ]

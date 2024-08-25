@@ -28,7 +28,7 @@
               <h3 class="mt-0.5 text-lg font-bold text-gray-900">{{ artigo.titulo }}</h3>
             </a>
 
-            <p class="mt-2 line-clamp-3 text-sm text-black">{{ artigo.conteudo }}</p>
+            <p class="mt-2 line-clamp-3 text-sm text-black">{{ artigo.conteudo['introducao_1']['descricao'] }}</p>
 
             <a
               :href="'/article/' + artigo.id"
@@ -39,62 +39,8 @@
           </article>
         </div>
       </div>
-      <!-- 
-      <div v-show="explore" class="content-explore">
-        <div class="pagetitle">
-          <div class="title">Explore</div>
-        </div>
 
-        <div class="cards">
-          <div class="card cursor-pointer" @click="(pousoLunar = true), (explore = false)">
-            <div class="cardback"></div>
-            <svg
-              @click="(pousoLunar = true), (explore = false)"
-              class="expandcard h-6 w-6 text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24">
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m9 5 7 7-7 7" />
-            </svg>
-            <div class="cardcontent">
-              <div>Pouso Lunar</div>
-            </div>
-          </div>
-
-          <div class="card cursor-pointer" @click="(twolines = true), (explore = false)">
-            <div class="cardback"></div>
-            <svg
-              @click="(twolines = true), (explore = false)"
-              class="expandcard h-6 w-6 text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24">
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m9 5 7 7-7 7" />
-            </svg>
-            <div class="cardcontent">
-              <div>Two Lines</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div v-show="pousoLunar">
+      <!-- <div v-show="pousoLunar">
         <div class="ml-6 mt-10 flex flex-row">
           <div class="ml-6 mr-6 cursor-pointer content-center">
             <svg
@@ -302,9 +248,9 @@
         </div>
 
         <div class="h-28"></div>
-      </div>
+      </div> -->
 
-      <div v-show="twolines">
+      <!-- <div v-show="twolines">
         <div class="mb-10 ml-6 mt-10 flex flex-row">
           <div class="ml-6 mr-6 cursor-pointer content-center">
             <svg

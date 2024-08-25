@@ -1,7 +1,17 @@
 @import "not-found";
 
+// AG GRID
+.p-datatable-column-header-content {
+    font-weight: bold;
+}
 
+.ag-paging-panel {
+    @media (max-width: 768px) {
+      width: max-content;
+    }
+  }
 
+// Geral
 
 .container {
     display: flex;
