@@ -3,7 +3,7 @@ ARG EXTRA_PKGS="gcc libc6-dev"
 
 
 # ---- Node.js Builder Image ----
-FROM node:14.19.0-bullseye AS nodejs_builder
+FROM node:18.16.0-bullseye AS nodejs_builder
 
 COPY ./client /var/nodejs-temp
 
