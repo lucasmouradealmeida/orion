@@ -14,7 +14,7 @@
             addContext(JSON.parse('{{ app.context | tojson | safe }}'))
         </script>
     {% endif %}
-    {% include '/includes/layouts/home.html' %}
+    {% include '/includes/layouts/article.html' %}
 {% endblock %}
 
 {% block footer %}
@@ -22,5 +22,5 @@
 {% endblock %}
 
 {% block pageScripts %}
-    <script type="module" src="{{ url_for('static', filename='dist/page-home.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='dist/page-article.js') }}"></script>
 {% endblock %}

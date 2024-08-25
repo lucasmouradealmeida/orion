@@ -1,6 +1,6 @@
 from http import HTTPStatus
 
-from flask import Flask, flash, redirect, url_for
+from flask import Flask, redirect, url_for
 from flask_session import Session
 
 # from flask_wtf.csrf import CSRFProtect
@@ -33,7 +33,6 @@ def create_app() -> Flask:
 
     @app.errorhandler(HTTPStatus.NOT_FOUND)
     def not_found(e):
-        flash(config.PAGE_NOT_FOUND_MESSAGE, "error")
         return redirect(url_for(config.PAGE_NOT_FOUND_REDIRECT))
 
     routes.init_app(app)

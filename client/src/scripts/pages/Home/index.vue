@@ -1,59 +1,45 @@
 <template>
   <div class="main">
     <div class="content">
-      <div v-show="home" class="content-home">
-        <div class="container">
-          <div class="title">Sobre</div>
-          <div class="divider"></div>
+      <div class="mb-1 mt-6 pl-4 text-[22pt] font-bold text-white">Artigos</div>
 
-          <div class="paragraph text-justify indent-12">
-            Este projeto tem como intuito passar alguns dos conhecimentos aprendidos ao longo da graduação em Engenheira
-            Aeroespacial. Campo que incorpora o estado da arte da engenharia aplicada ao projeto, análise, construção e
-            testes de sistemas associados com o Setor Aeroespacial, envolvendo aeronaves, foguetes e satélites
-            artificiais. Seus conhecimentos incluem sistemas de propulsão, comunicação, controle de aeronaves, navegação
-            e interação homem-máquina. As tecnologias que este profissional utilizará são complementadas com noções de
-            sensores e instrumentação de bordo, de materiais especiais, de aerodinâmica e de controle de temperatura. A
-            formação na UFABC possibilita amplos conhecimentos de física, química, matemática, computação e noções
-            fundamentais de engenharia.
-          </div>
+      <div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div v-for="artigo in artigos">
+          <article class="rounded-lg border border-gray-100 bg-white p-4 transition sm:p-6">
+            <span class="inline-block rounded bg-[#324ab2] p-2 text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-[20px] w-[20px]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+              </svg>
+            </span>
 
-          <div class="title">Perfil do profissional</div>
-          <div class="divider"></div>
+            <a>
+              <h3 class="mt-0.5 text-lg font-bold text-gray-900">{{ artigo.titulo }}</h3>
+            </a>
 
-          <div class="paragraph text-justify indent-12">
-            É o engenheiro apto a atuar em modelagem, controle, projeto, análise, construção e testes de sistemas no
-            setor aeroespacial Atuação: Pesquisa científica nas várias entidades que estudam aeronaves e veículos
-            espaciais no Brasil (UFABC, INPE, CTA, AEB,...) Indústria: qualquer empresa que presta serviço ao setor
-            aeroespacial (EMBRAER, AVIBRAS, Helibrás, etc). Empresário autônomo como fabricante/fornecedor de peças,
-            componentes, serviços e soluções para o mercado aeroespacial brasileiro.
-          </div>
+            <p class="mt-2 line-clamp-3 text-sm text-black">{{ artigo.conteudo }}</p>
 
-          <div class="title">Atuação profissional</div>
-          <div class="divider"></div>
-
-          <div class="paragraph text-justify indent-12">
-            Desenvolvimento e a avaliação de sistemas diversos (computação, eletrônicos, mecânicos, hidráulicos)
-            associados a aeronaves, foguetes e sondas espaciais. Desenvolvimento de satélites artificiais (modelagem,
-            controle,...) para diversas finalidades (satélites meteorológicos, de comunicação, observacionais) Sistemas
-            de propulsão, comunicação, controle de atitude, navegação, interação homem-máquina,... Sensores e
-            instrumentação de bordo, materiais especiais, aerodinâmica, controle de temperatura, controle de vibração,
-            em sistemas diversos associados a aeronaves, foguetes,...
-          </div>
-
-          <div class="title">Formação na UFABC</div>
-          <div class="divider"></div>
-
-          <div class="paragraph text-justify indent-12">
-            Para a sua formação como Engenheiro Espacial, nosso curso oferece as seguintes disciplinas: Aerodinâmica,
-            Aeroelasticidade, Astrodinâmica, Aviônica, Ciência dos Materiais, Controle de aeronaves, Desempenho, Ensaios
-            em vôo, Estabilidade de vôo, Helicópteros, Instrumentação e sistemas, Propulsão, Sistemas de radar. Ao longo
-            do curso, também serão estudados: Circuitos elétricos, Estruturas, Gestão, Matemática, Mecânica clássica,
-            Mecânica dos Ruídos, Mecânica dos sólidos, Probabilidades e Estatística, Telecomunicações, Termodinâmica e
-            Vibrações e ruído.
-          </div>
+            <a
+              :href="'/article/' + artigo.id"
+              class="text-blue-600 group mt-4 inline-flex items-center gap-1 text-sm font-medium">
+              Leia mais
+              <span aria-hidden="true" class="block transition-all group-hover:ms-0.5 rtl:rotate-180">&rarr;</span>
+            </a>
+          </article>
         </div>
       </div>
-
+      <!-- 
       <div v-show="explore" class="content-explore">
         <div class="pagetitle">
           <div class="title">Explore</div>
@@ -470,7 +456,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -489,6 +475,7 @@ export default {
   },
   data() {
     return {
+      artigos: window.__site__.context.artigos,
       axis: 'x',
       userModal: false,
       modalSolarSystema: false,
