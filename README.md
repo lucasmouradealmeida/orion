@@ -21,3 +21,7 @@ npm run dev
 ```sh
 npm run build
 ```
+
+```sh
+poetry export -f requirements.txt --without-hashes --output requirements.txt
+```
