@@ -4,28 +4,19 @@
       <div class="mb-1 mt-6 pl-4 text-[22pt] font-bold text-white">Pouso Lunar</div>
     </div>
 
-    <div class="ml-4 mr-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="ml-4 mr-4 grid w-max grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <div
         v-for="button in buttons"
         :key="button.id"
         @click="executeAction(button.action, true)"
         class="group relative inline-flex cursor-pointer items-center overflow-hidden rounded bg-[#324AB2] px-8 py-3 text-white focus:outline-none focus:ring active:bg-[#324AB2]">
-        <span class="absolute -end-full transition-all group-hover:end-4">
-          <svg
-            class="h-[20px] w-[20px] rtl:rotate-180"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </span>
-
-        <span class="text-sm font-medium transition-all group-hover:me-4">{{ button.label }}</span>
+        <span class="text-sm font-medium transition-all">{{ button.label }}</span>
       </div>
     </div>
 
     <LineChart :chart-data="graphData" :options="graphOptions" class="p-6" ref="pageChart"></LineChart>
+
+    <GraphCards :curves="curves" @remove-curve="handleRemoveCurve" />
   </div>
 
   <Modal v-if="modalPousoSuave" v-model="modalPousoSuave" @close="modalPousoSuave = false">
@@ -36,33 +27,33 @@
     <template v-slot:body>
       <div class="grid grid-cols-2 gap-4 p-6">
         <div class="flex flex-col space-y-2">
-          <label for="ps_massa" class="text-sm font-medium">Massa</label>
-          <input id="ps_massa" type="number" class="input" />
+          <label for="ps_massa" class="text-sm font-medium">Massa (kg)</label>
+          <input id="ps_massa" type="number" value="1.1" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="ps_gravidade" class="text-sm font-medium">Gravidade</label>
-          <input id="ps_gravidade" type="number" class="input" />
+          <label for="ps_gravidade" class="text-sm font-medium">Gravidade (m/s²)</label>
+          <input id="ps_gravidade" type="number" value="1.8" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="ps_intensidade" class="text-sm font-medium">Intensidade</label>
-          <input id="ps_intensidade" type="number" class="input" />
+          <label for="ps_intensidade" class="text-sm font-medium">Empuxo (N)</label>
+          <input id="ps_intensidade" type="number" value="3.6" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="ps_angulo" class="text-sm font-medium">Ângulo</label>
-          <input id="ps_angulo" type="number" class="input" />
+          <label for="ps_angulo" class="text-sm font-medium">Ângulo (graus)</label>
+          <input id="ps_angulo" type="number" value="0" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="ps_altura" class="text-sm font-medium">Altura</label>
-          <input id="ps_altura" type="number" class="input" />
+          <label for="ps_altura" class="text-sm font-medium">Altura (m)</label>
+          <input id="ps_altura" type="number" value="11" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="ps_velocidade" class="text-sm font-medium">Velocidade</label>
-          <input id="ps_velocidade" type="number" class="input" />
+          <label for="ps_velocidade" class="text-sm font-medium">Velocidade (m/s)</label>
+          <input id="ps_velocidade" type="number" value="-7" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
@@ -102,32 +93,32 @@
     <template v-slot:body>
       <div class="grid grid-cols-2 gap-4 p-6">
         <div class="flex flex-col space-y-2">
-          <label for="cv_massa" class="text-sm font-medium">Massa</label>
+          <label for="cv_massa" class="text-sm font-medium">Massa (kg)</label>
           <input id="cv_massa" type="number" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="cv_gravidade" class="text-sm font-medium">Gravidade</label>
+          <label for="cv_gravidade" class="text-sm font-medium">Gravidade (m/s²)</label>
           <input id="cv_gravidade" type="number" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="cv_intensidade" class="text-sm font-medium">Intensidade</label>
+          <label for="cv_intensidade" class="text-sm font-medium">Empuxo (N)</label>
           <input id="cv_intensidade" type="number" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="cv_angulo" class="text-sm font-medium">Ângulo</label>
+          <label for="cv_angulo" class="text-sm font-medium">Ângulo (graus)</label>
           <input id="cv_angulo" type="number" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="cv_altura_inicial" class="text-sm font-medium">Altura inicial</label>
+          <label for="cv_altura_inicial" class="text-sm font-medium">Altura inicial (m)</label>
           <input id="cv_altura_inicial" type="number" class="input" />
         </div>
 
         <div class="flex flex-col space-y-2">
-          <label for="cv_velocidade_inicial" class="text-sm font-medium">Velocidade inicial</label>
+          <label for="cv_velocidade_inicial" class="text-sm font-medium">Velocidade inicial (m/s)</label>
           <input id="cv_velocidade_inicial" type="number" class="input" />
         </div>
 
@@ -191,11 +182,14 @@
 import Modal from '@/components/Modal'
 import LineChart from '@/modules/LineChart.vue'
 
+import GraphCards from '@/modules/GraphCards.vue'
+
 export default {
   name: 'PousoLunar',
   components: {
     Modal,
-    LineChart
+    LineChart,
+    GraphCards
   },
   data() {
     return {
@@ -217,10 +211,11 @@ export default {
         },
         {
           id: 3,
-          label: 'Apagar curvas',
+          label: 'Apagar todas as curvas',
           action: 'modalDeleteCurves'
         }
       ],
+      curves: [],
       graphData: {
         datasets: []
       },
@@ -280,6 +275,12 @@ export default {
     }
   },
   methods: {
+    handleRemoveCurve(index) {
+      this.graphData.datasets.splice(index, 1)
+      this.curves.splice(index, 1)
+      const pageChart = this.$refs.pageChart
+      pageChart.update()
+    },
     deleteCurves() {
       this.graphData.datasets = []
       const pageChart = this.$refs.pageChart
@@ -305,6 +306,22 @@ export default {
       const gravidade = parseFloat(document.getElementById('cv_gravidade').value)
       const intensidade = parseFloat(document.getElementById('cv_intensidade').value)
       const angulacao = parseFloat(document.getElementById('cv_angulo').value)
+
+      this.curves.push({
+        nome: nome + ' - Curva de velocidade',
+        massa: massa,
+        gravidade: gravidade,
+        intensidade: intensidade,
+        angulacao: angulacao,
+        tipo: 1
+      })
+
+      this.curves.push({
+        nome: nome + ' - Ponto',
+        altura: y,
+        velocidade_inicial: x,
+        tipo: 2
+      })
 
       const rawResponse = await fetch('/pouso/curva/velocidade', {
         method: 'POST',
@@ -355,8 +372,17 @@ export default {
       })
 
       const content = await rawResponse.json()
-      console.log(content)
-      this.addCurvaVelocidade(content.velocidade, content.altura, corCurva, nome, null, null, null)
+      if (content) {
+        this.curves.push({
+          nome: nome + ' - Pouso suave',
+          massa: massa,
+          gravidade: gravidade,
+          intensidade: intensidade,
+          angulacao: angulacao,
+          tipo: 1
+        })
+        this.addCurvaVelocidade(content.velocidade, content.altura, corCurva, nome, null, null, null)
+      }
     },
 
     addCurvaVelocidade(velocidade, altura, corCurva, nome, corPonto, x, y) {
