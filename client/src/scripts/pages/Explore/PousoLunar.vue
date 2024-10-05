@@ -283,6 +283,7 @@ export default {
     },
     deleteCurves() {
       this.graphData.datasets = []
+      this.curves = []
       const pageChart = this.$refs.pageChart
       pageChart.update()
     },
