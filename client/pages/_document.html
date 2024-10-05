@@ -22,12 +22,14 @@
         {% include '/includes/modules/context.html' %}
     </head>
 
-    <body>
+    <body class="flex h-full min-h-screen flex-col">
         {% block header %}{% endblock %}
-        <div class="mt-[60px] flex flex-row overflow-auto">
+
+        <div class="mt-[60px] flex flex-1 flex-row">
             <section>{% include '/includes/modules/sidebar.html' %}</section>
             {% block content %}{% endblock %}
         </div>
+
         {% block footer %}{% endblock %}
 
         {% if ctx.config.IS_DEV_MODE %}

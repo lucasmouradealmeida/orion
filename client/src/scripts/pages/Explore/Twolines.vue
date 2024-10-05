@@ -4,7 +4,7 @@
       <div class="mb-1 mt-6 pl-4 text-[22pt] font-bold text-white">Two Lines</div>
     </div>
 
-    <div class="ml-4 mt-4 flex flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0">
+    <div class="mb-9 ml-4 mt-4 flex flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0">
       <div>
         <div for="celestrakGroups" class="text-md mb-2 block font-medium text-white">Agrupamentos de Satélites</div>
         <select
@@ -18,9 +18,7 @@
       </div>
     </div>
 
-    <div>
-      <TableCards :data="celestrakObjects" :itemsPerPage="6" />
-    </div>
+    <TableCards :data="celestrakObjects" :itemsPerPage="6" />
   </div>
 </template>
 

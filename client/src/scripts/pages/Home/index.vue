@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">
       <div v-for="artigo in artigos">
         <article class="rounded-lg border border-gray-100 bg-white p-4 transition sm:p-6">
-          <span class="inline-block rounded bg-[#324ab2] p-2 text-white">
+          <span class="inline-block rounded bg-[#324AB2] p-2 text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-[20px] w-[20px]"

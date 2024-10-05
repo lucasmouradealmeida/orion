@@ -1,5 +1,5 @@
 <template>
-  <div class="relative m-auto h-[80vh] max-h-[500px] w-[80vw] min-w-[400px]">
+  <div class="relative m-auto min-h-[600px] min-w-[350px]">
     <canvas class="rounded-lg bg-white p-5" ref="chart"></canvas>
   </div>
 </template>

@@ -9,7 +9,7 @@
         v-for="button in buttons"
         :key="button.id"
         @click="executeAction(button.action, true)"
-        class="group relative inline-flex cursor-pointer items-center overflow-hidden rounded bg-[#324ab2] px-8 py-3 text-white focus:outline-none focus:ring active:bg-[#324ab2]">
+        class="group relative inline-flex cursor-pointer items-center overflow-hidden rounded bg-[#324AB2] px-8 py-3 text-white focus:outline-none focus:ring active:bg-[#324AB2]">
         <span class="absolute -end-full transition-all group-hover:end-4">
           <svg
             class="h-[20px] w-[20px] rtl:rotate-180"
