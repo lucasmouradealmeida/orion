@@ -35,7 +35,7 @@
 
         <div class="flex w-full flex-row items-center justify-center space-x-2 lg:justify-start">
           <a
-            href="https://www.linkedin.com/in/lucasmouradealmeida"
+            href="https://www.instagram.com/moura_lucaz/"
             rel="noreferrer"
             target="_blank"
             class="h-[20px] w-[20px] text-white transition hover:text-black">
@@ -49,7 +49,7 @@
           </a>
 
           <a
-            href="https://www.instagram.com/moura_lucaz/"
+            href="https://www.github.com/lucasmouradealmeida"
             rel="noreferrer"
             target="_blank"
             class="h-[20px] w-[20px] text-white transition hover:text-black">

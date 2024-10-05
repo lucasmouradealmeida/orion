@@ -26,88 +26,6 @@
 
   <LineChart :chart-data="graphData" :options="graphOptions" class="p-6" ref="pageChart"></LineChart>
 
-  <Modal v-if="modalRangeX" v-model="modalRangeX" @close="modalRangeX = false">
-    <template v-slot:header>
-      <h2 class="text-lg font-bold">Eixo X</h2>
-    </template>
-
-    <template v-slot:body>
-      <div class="grid grid-cols-2 gap-4 p-6">
-        <div class="flex flex-col space-y-2">
-          <label for="graph_min" class="text-sm font-medium">Mínimo</label>
-          <input id="graph_min" type="number" class="input" />
-        </div>
-
-        <div class="flex flex-col space-y-2">
-          <label for="graph_max" class="text-sm font-medium">Máximo</label>
-          <input id="graph_max" type="number" class="input" />
-        </div>
-
-        <div class="col-span-2 flex flex-col space-y-2">
-          <label for="graph_stepsize" class="text-sm font-medium">Intervalo</label>
-          <input id="graph_stepsize" type="number" class="input" />
-        </div>
-      </div>
-    </template>
-
-    <template v-slot:footer>
-      <div class="flex w-full flex-row justify-center space-x-4 p-6">
-        <button
-          @click="executeAction('modalRangeX', false)"
-          class="inline-block rounded border border-[#b23237] px-12 py-3 text-sm font-medium text-[#b23237] hover:bg-[#b23237] hover:text-white focus:outline-none focus:ring active:bg-[#b23237]">
-          Cancelar
-        </button>
-
-        <button
-          @click="graphRangeX(), executeAction('modalRangeX', false)"
-          class="inline-block rounded border border-[#45b232] px-12 py-3 text-sm font-medium text-[#45b232] hover:bg-[#45b232] hover:text-white focus:outline-none focus:ring active:bg-[#45b232]">
-          Salvar
-        </button>
-      </div>
-    </template>
-  </Modal>
-
-  <Modal v-if="modalRangeY" v-model="modalRangeY" @close="modalRangeY = false">
-    <template v-slot:header>
-      <h2 class="text-lg font-bold">Eixo Y</h2>
-    </template>
-
-    <template v-slot:body>
-      <div class="grid grid-cols-2 gap-4 p-6">
-        <div class="flex flex-col space-y-2">
-          <label for="graph_min_y" class="text-sm font-medium">Mínimo</label>
-          <input id="graph_min_y" type="number" class="input" />
-        </div>
-
-        <div class="flex flex-col space-y-2">
-          <label for="graph_max_y" class="text-sm font-medium">Máximo</label>
-          <input id="graph_max_y" type="number" class="input" />
-        </div>
-
-        <div class="col-span-2 flex flex-col space-y-2">
-          <label for="graph_stepsize_y" class="text-sm font-medium">Intervalo</label>
-          <input id="graph_stepsize_y" type="number" class="input" />
-        </div>
-      </div>
-    </template>
-
-    <template v-slot:footer>
-      <div class="flex w-full flex-row justify-center space-x-4 p-6">
-        <button
-          @click="executeAction('modalRangeY', false)"
-          class="inline-block rounded border border-[#b23237] px-12 py-3 text-sm font-medium text-[#b23237] hover:bg-[#b23237] hover:text-white focus:outline-none focus:ring active:bg-[#b23237]">
-          Cancelar
-        </button>
-
-        <button
-          @click="graphRangeY(), executeAction('modalRangeY', false)"
-          class="inline-block rounded border border-[#45b232] px-12 py-3 text-sm font-medium text-[#45b232] hover:bg-[#45b232] hover:text-white focus:outline-none focus:ring active:bg-[#45b232]">
-          Salvar
-        </button>
-      </div>
-    </template>
-  </Modal>
-
   <Modal v-if="modalPousoSuave" v-model="modalPousoSuave" @close="modalPousoSuave = false">
     <template v-slot:header>
       <h2 class="text-lg font-bold">Pouso suave</h2>
@@ -287,26 +205,16 @@ export default {
       buttons: [
         {
           id: 1,
-          label: 'Eixo X',
-          action: 'modalRangeX'
-        },
-        {
-          id: 2,
-          label: 'Eixo Y',
-          action: 'modalRangeY'
-        },
-        {
-          id: 3,
           label: 'Pouso suave',
           action: 'modalPousoSuave'
         },
         {
-          id: 4,
+          id: 2,
           label: 'Curva de velocidade',
           action: 'modalCurvaVelocidade'
         },
         {
-          id: 5,
+          id: 3,
           label: 'Apagar curvas',
           action: 'modalDeleteCurves'
         }
@@ -329,10 +237,7 @@ export default {
               }
             },
             type: 'linear',
-            min: -20,
-            max: 10,
             ticks: {
-              stepSize: 2,
               font: {
                 size: 14,
                 weight: 'bolder'
@@ -351,10 +256,7 @@ export default {
               }
             },
             type: 'linear',
-            min: -20,
-            max: 10, // Define o range do eixo x
             ticks: {
-              stepSize: 2, // Define o intervalo entre os ticks
               font: {
                 size: 14,
                 weight: 'bolder'
@@ -389,34 +291,6 @@ export default {
       } else {
         document.querySelector('body').style.overflow = 'auto'
       }
-    },
-
-    graphRangeY() {
-      const min = parseFloat(document.getElementById('graph_min_y').value)
-      const max = parseFloat(document.getElementById('graph_max_y').value)
-      const stepsize = parseFloat(document.getElementById('graph_stepsize_y').value)
-
-      this.graphOptions.scales.y.min = min
-      this.graphOptions.scales.y.max = max
-      this.graphOptions.scales.y.ticks.stepSize = stepsize
-      this.graphOptions.scales.y.type = 'linear'
-
-      const pageChart = this.$refs.pageChart
-      pageChart.update()
-    },
-
-    graphRangeX() {
-      const min = parseFloat(document.getElementById('graph_min').value)
-      const max = parseFloat(document.getElementById('graph_max').value)
-      const stepsize = parseFloat(document.getElementById('graph_stepsize').value)
-
-      this.graphOptions.scales.x.min = min
-      this.graphOptions.scales.x.max = max
-      this.graphOptions.scales.x.ticks.stepSize = stepsize
-      this.graphOptions.scales.x.type = 'linear'
-
-      const pageChart = this.$refs.pageChart
-      pageChart.update()
     },
 
     async curvaVelocidade() {
