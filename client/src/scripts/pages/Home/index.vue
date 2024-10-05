@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px-6">
     <div class="mb-1 mt-6 pl-4 text-[22pt] font-bold text-white">Artigos</div>
 
     <div class="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">

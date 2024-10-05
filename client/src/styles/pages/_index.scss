@@ -1,17 +1,4 @@
 @import "not-found";
-@import 'ag-grid-community/styles/ag-grid.css';
-@import 'ag-grid-community/styles/ag-theme-quartz.css';
-
-// AG GRID
-.p-datatable-column-header-content {
-    font-weight: bold;
-}
-
-.ag-paging-panel {
-    @media (max-width: 768px) {
-      width: max-content;
-    }
-  }
 
 // Inputs
 
