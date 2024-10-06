@@ -14,9 +14,9 @@
       </div>
     </div>
 
-    <LineChart :chart-data="graphData" :options="graphOptions" class="p-6" ref="pageChart"></LineChart>
+    <CardsLunar :curves="curves" @remove-curve="handleRemoveCurve" />
 
-    <GraphCards :curves="curves" @remove-curve="handleRemoveCurve" />
+    <LineChart :chart-data="graphData" :options="graphOptions" class="p-6" ref="pageChart"></LineChart>
   </div>
 
   <Modal v-if="modalPousoSuave" v-model="modalPousoSuave" @close="modalPousoSuave = false">
@@ -182,14 +182,14 @@
 import Modal from '@/components/Modal'
 import LineChart from '@/modules/LineChart.vue'
 
-import GraphCards from '@/modules/GraphCards.vue'
+import CardsLunar from '@/modules/CardsLunar.vue'
 
 export default {
   name: 'PousoLunar',
   components: {
     Modal,
     LineChart,
-    GraphCards
+    CardsLunar
   },
   data() {
     return {

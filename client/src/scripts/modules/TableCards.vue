@@ -249,6 +249,8 @@ export default {
     filteredData() {
       if (!this.searchQuery) {
         return this.data
+      } else {
+        this.currentPage = 1
       }
 
       return this.data.filter((row) => {
