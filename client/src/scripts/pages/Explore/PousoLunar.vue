@@ -4,12 +4,12 @@
       <div class="mb-1 mt-6 pl-4 text-[22pt] font-bold text-white">Pouso Lunar</div>
     </div>
 
-    <div class="ml-4 mr-4 grid w-max grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mb-8 ml-4 mr-4 grid w-max grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <div
         v-for="button in buttons"
         :key="button.id"
         @click="executeAction(button.action, true)"
-        class="group relative inline-flex cursor-pointer items-center overflow-hidden rounded bg-[#324AB2] px-8 py-3 text-white focus:outline-none focus:ring active:bg-[#324AB2]">
+        class="group relative inline-flex cursor-pointer items-center overflow-hidden rounded bg-[#324AB2] px-3 py-3 text-white focus:outline-none focus:ring active:bg-[#324AB2]">
         <span class="text-sm font-medium transition-all">{{ button.label }}</span>
       </div>
     </div>

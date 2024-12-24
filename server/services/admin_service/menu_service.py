@@ -14,10 +14,12 @@ def menu(ctx: Context) -> list[Menu] | None:
             {
                 "name": "Explore",
                 "icon": "Explore",
-                 "submenu": [
+                "submenu": [
                     {"name": "Two Lines", "icon": "twolines", "url": "/twolines"},
                     {"name": "Pouso Lunar", "icon": "pousolunar", "url": "/pousolunar"},
+                    {"name": "Transferência Orbital", "icon": "transforbital", "url": "/orbital"},
+                    {"name": "Pontos de Lagrange", "icon": "pontoslagrange", "url": "/lagrange"},
                 ],
-            }
+            },
         ]
     )

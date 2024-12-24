@@ -6,7 +6,6 @@
 
     <div class="mb-9 ml-4 mt-4 flex flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0">
       <div>
-        <div for="celestrakGroups" class="text-md mb-2 block font-medium text-white">Agrupamentos de Satélites</div>
         <select
           @input="findSatelites($event.target.value)"
           name="celestrakGroups"
@@ -18,7 +17,7 @@
       </div>
     </div>
 
-    <TableCards :data="celestrakObjects" :itemsPerPage="6" />
+    <TableCards :data="celestrakObjects" :itemsPerPage="6" :loading="loadingCelestrak" />
   </div>
 </template>
 
@@ -33,6 +32,7 @@ export default {
   },
   data() {
     return {
+      loadingCelestrak: false,
       celestrackGroups: window.__site__.context.groups[0],
       celestrakObjects: [],
       selectSatelite: document.querySelector('#satelite')
@@ -43,12 +43,15 @@ export default {
   },
   methods: {
     async findSatelites(code) {
+      this.loadingCelestrak = true
+
       const rawResponse = await fetch(
         `https://celestrak.org/NORAD/elements/gp.php?GROUP=${code}&FORMAT=json-pretty`,
         {}
       )
 
       const content = await rawResponse.json()
+      this.loadingCelestrak = false
       this.celestrakObjects = content
       this.rowData = ref(content)
     }

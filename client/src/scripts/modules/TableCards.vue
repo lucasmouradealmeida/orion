@@ -70,10 +70,9 @@
           </p>
 
           <!-- Botão para abrir modal -->
-          <div @click="openModal(row)" class="mt-4 flex w-max cursor-pointer flex-row rounded-md bg-gray-100 p-2">
-            <a class="bg-blue-500 hover:bg-blue-700 rounded-lg font-bold text-[#324AB2]">Ver mais</a>
+          <div @click="openModal(row)" class="mt-4 flex w-max cursor-pointer flex-row rounded-md bg-white p-2">
             <svg
-              class="ml-2 h-6 w-6 text-[#324AB2]"
+              class="h-6 w-6 text-[#324AB2]"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -195,8 +194,16 @@
   </div>
 
   <!-- Mensagem caso não haja dados filtrados -->
-  <div class="flex justify-center text-[20px] font-bold text-white" v-else>
+  <div v-if="!loading && data.length == 0" class="flex justify-center text-[20px] font-bold text-white">
     <p>Sem dados disponíveis</p>
+  </div>
+
+  <!-- Loading spinner -->
+  <div v-if="loading && data.length == 0" class="flex h-64 items-center justify-center">
+    <svg class="h-10 w-10 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+    </svg>
   </div>
 </template>
 
@@ -215,6 +222,10 @@ export default {
     itemsPerPage: {
       type: Number,
       default: 9 // Ajustar para múltiplos de 3 por página
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

@@ -13,6 +13,18 @@ def pousolunar_controller(ctx: Context):
     return {"titulo": "Pouso Lunar"}
 
 
+@bp.route("/lagrange", methods=["GET"], endpoint="pontos-lagrange")
+@with_context(template="./pontos-lagrange.html")
+def pontos_lagrange_controller(ctx: Context):
+    return {"titulo": "Pontos de Lagrange"}
+
+
+@bp.route("/orbital", methods=["GET"], endpoint="transferencia-orbital")
+@with_context(template="./transferencia-orbital.html")
+def transferencia_orbital_controller(ctx: Context):
+    return {"titulo": "Transferência Orbital"}
+
+
 @bp.route("/twolines", methods=["GET"], endpoint="twolines")
 @with_context(template="./twolines.html")
 def twolines_controller(ctx: Context):

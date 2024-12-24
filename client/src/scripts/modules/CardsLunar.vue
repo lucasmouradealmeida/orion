@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4">
+  <div class="w-full px-8">
     <div
       v-for="(curve, index) in curves"
       :key="index"
