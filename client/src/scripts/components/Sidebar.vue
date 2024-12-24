@@ -67,7 +67,7 @@
               <li v-for="submenuItem in item.submenu" :key="submenuItem.name">
                 <div
                   :class="[
-                    'block flex flex-row space-x-2 rounded-lg px-4 py-2 text-sm font-medium',
+                    'flex flex-row space-x-2 rounded-lg px-4 py-2 text-sm font-medium',
                     currentView === submenuItem.url
                       ? 'bg-gray-100 text-black'
                       : 'text-white hover:bg-gray-100 hover:text-black'
