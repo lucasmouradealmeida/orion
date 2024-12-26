@@ -21,4 +21,4 @@ def home_controller(ctx: Context):
             "artigos": artigos,
         },
     }
-    return {"titulo": "Home", "app": AppConfig(**config).to_dict()}
+    return {"titulo": "Project Orion", "app": AppConfig(**config).to_dict()}
