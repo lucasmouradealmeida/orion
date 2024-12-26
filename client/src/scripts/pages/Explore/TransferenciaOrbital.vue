@@ -100,7 +100,7 @@
       <!-- Descrição do módulo -->
       <div class="group">
         <div class="flex cursor-pointer items-center justify-between space-x-2 rounded" @click="toggle">
-          <h2 class="text-medium w-max font-semibold text-white">Descrição</h2>
+          <h2 class="text-medium w-max font-semibold text-white">Teoria</h2>
 
           <span
             class="flex shrink-0 cursor-pointer items-center rounded-lg transition-transform duration-300"
@@ -211,7 +211,7 @@
       <!-- Descrição do módulo -->
       <div class="group">
         <div class="flex cursor-pointer items-center justify-between space-x-2 rounded" @click="toggle">
-          <h2 class="text-medium w-max font-semibold text-white">Descrição</h2>
+          <h2 class="text-medium w-max font-semibold text-white">Teoria</h2>
 
           <span
             class="flex shrink-0 cursor-pointer items-center rounded-lg transition-transform duration-300"
@@ -327,7 +327,7 @@
       <!-- Descrição do módulo -->
       <div class="group">
         <div class="flex cursor-pointer items-center justify-between space-x-2 rounded" @click="toggle">
-          <h2 class="text-medium w-max font-semibold text-white">Descrição</h2>
+          <h2 class="text-medium w-max font-semibold text-white">Teoria</h2>
 
           <span
             class="flex shrink-0 cursor-pointer items-center rounded-lg transition-transform duration-300"
@@ -449,7 +449,7 @@
       <!-- Descrição do módulo -->
       <div class="group">
         <div class="flex cursor-pointer items-center justify-between space-x-2 rounded" @click="toggle">
-          <h2 class="text-medium w-max font-semibold text-white">Descrição</h2>
+          <h2 class="text-medium w-max font-semibold text-white">Teoria</h2>
 
           <span
             class="flex shrink-0 cursor-pointer items-center rounded-lg transition-transform duration-300"
@@ -557,7 +557,7 @@
       <!-- Descrição do módulo -->
       <div class="group">
         <div class="flex cursor-pointer items-center justify-between space-x-2 rounded" @click="toggle">
-          <h2 class="text-medium w-max font-semibold text-white">Descrição</h2>
+          <h2 class="text-medium w-max font-semibold text-white">Teoria</h2>
 
           <span
             class="flex shrink-0 cursor-pointer items-center rounded-lg transition-transform duration-300"
