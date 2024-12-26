@@ -603,7 +603,6 @@
           <div class="select-planets">
             <label for="select-1" class="mr-4 text-white">Primeiro corpo celeste:</label>
             <select id="select-1" class="rounded-lg p-2" v-model="selectedBody1" @change="checkForSun">
-              <option value="" disabled selected>Selecione um corpo celeste</option>
               <option v-for="body in celestialBodies" :key="body" :value="body">{{ body }}</option>
             </select>
           </div>
@@ -611,7 +610,6 @@
           <div class="select-planets">
             <label for="select-2" class="mr-4 text-white">Segundo corpo celeste:</label>
             <select id="select-2" class="rounded-lg p-2" v-model="selectedBody2" @change="checkForSun">
-              <option value="" disabled selected>Selecione um corpo celeste</option>
               <option v-for="body in celestialBodies" :key="body" :value="body">{{ body }}</option>
             </select>
           </div>
@@ -732,17 +730,25 @@ export default {
   },
   methods: {
     checkForSun() {
-      // Verifica se a lua selecionada pertence ao planeta selecionado
+      // Verifica se ambos os corpos estão selecionados
       if (this.selectedBody1 && this.selectedBody2) {
-        const planetSelected = this.selectedBody1
-        const moonSelected = this.selectedBody2
+        const body1 = this.selectedBody1
+        const body2 = this.selectedBody2
 
-        // Se a lua selecionada pertence ao planeta selecionado, o Sol NÃO deve ser considerado
-        if (this.planetsAndMoons[planetSelected]?.includes(moonSelected)) {
-          this.considerSun = false
-        } else {
-          // Caso contrário, o Sol DEVE ser considerado
-          this.considerSun = true
+        // Verifica se um dos corpos selecionados é um planeta
+        const planet = this.planetsAndMoons[body1] ? body1 : this.planetsAndMoons[body2] ? body2 : null
+
+        if (planet) {
+          // O outro corpo deve ser uma lua pertencente ao planeta
+          const moon = planet === body1 ? body2 : body1
+
+          // Se a lua selecionada pertence ao planeta selecionado, o Sol NÃO deve ser considerado
+          if (this.planetsAndMoons[planet]?.includes(moon)) {
+            this.considerSun = false
+          } else {
+            // Caso contrário, o Sol DEVE ser considerado
+            this.considerSun = true
+          }
         }
       }
     },
