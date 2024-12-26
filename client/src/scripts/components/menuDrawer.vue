@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-5 text-white" @click="handleSidebar">
+  <div class="text-white" @click="handleSidebar">
     <svg
       v-if="!sidebarActive"
       class="h-[30px] w-[30px]"
