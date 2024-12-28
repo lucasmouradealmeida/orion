@@ -1,12 +1,8 @@
-from flask import Blueprint
-from http import HTTPStatus
 import numpy as np
-import matplotlib.pyplot as plt
-
 from flask import Blueprint, jsonify, request
+
 from server.core.context import Context
 from server.decorators import with_context
-
 from server.resources.pouso_lunar_resource import VelocidadesResource
 from server.services import pouso_lunar
 

@@ -14,9 +14,20 @@
       </div>
     </div>
 
-    <CardsLunar :curves="curves" @remove-curve="handleRemoveCurve" />
-
-    <LineChart :chart-data="graphData" :options="graphOptions" class="p-6" ref="pageChart"></LineChart>
+    <div v-if="!isLandscape" class="flex h-[40vh] items-center justify-center text-white">
+      <div class="flex w-[50vw] flex-col items-center">
+        <p class="text-justify">Gire o dispositivo para visualizar o gráfico.</p>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="mt-2 h-10 w-10" viewBox="0 0 16 16">
+          <path
+            d="M1 4.5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm-1 6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2z" />
+          <path d="M14 7.5a1 1 0 1 0-2 0 1 1 0 0 0 2 0" />
+        </svg>
+      </div>
+    </div>
+    <div v-else>
+      <CardsLunar :curves="curves" @remove-curve="handleRemoveCurve" />
+      <LineChart :chart-data="graphData" :options="graphOptions" class="p-6" ref="pageChart"></LineChart>
+    </div>
   </div>
 
   <Modal v-if="modalPousoSuave" v-model="modalPousoSuave" @close="modalPousoSuave = false">
@@ -193,6 +204,7 @@ export default {
   },
   data() {
     return {
+      isLandscape: window.matchMedia('(orientation: landscape)').matches,
       modalRangeX: false,
       modalRangeY: false,
       modalPousoSuave: false,
@@ -274,7 +286,14 @@ export default {
       }
     }
   },
+  mounted() {
+    this.updateOrientation() // Atualizar orientação no início
+    window.addEventListener('resize', this.updateOrientation)
+  },
   methods: {
+    updateOrientation() {
+      this.isLandscape = window.matchMedia('(orientation: landscape)').matches
+    },
     handleRemoveCurve(index) {
       this.graphData.datasets.splice(index, 1)
       this.curves.splice(index, 1)

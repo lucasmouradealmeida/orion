@@ -140,9 +140,9 @@
       </div>
 
       <!-- Conteúdo da seção -->
-      <div class="flex flex-row">
+      <div class="flex flex-col md:flex-row lg:flex-row">
         <div class="mt-10 flex flex-col gap-4 px-6">
-          <div class="select-planets">
+          <div class="select-planets flex flex-col space-y-2">
             <label for="planet-select" class="mr-4 text-white">Selecione um corpo celeste:</label>
 
             <select id="planet-select" class="rounded-lg p-2" v-model="selectedPlanet">
@@ -164,13 +164,13 @@
           </div>
 
           <!-- Raio 1 -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="raio1" class="text-white">Raio 1 (km):</label>
             <input id="raio1" type="text" class="rounded-lg p-2" />
           </div>
 
           <!-- Raio 2 -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="raio2" class="text-white">Raio 2 (km):</label>
             <input id="raio2" type="text" class="rounded-lg p-2" />
           </div>
@@ -250,9 +250,9 @@
       </div>
 
       <!-- Conteúdo da seção -->
-      <div class="flex flex-row">
+      <div class="flex flex-col md:flex-row lg:flex-row">
         <div class="mt-10 flex flex-col gap-4 px-6">
-          <div class="select-planets">
+          <div class="select-planets flex flex-col space-y-2">
             <label for="planet-select" class="mr-4 text-white">Selecione um corpo celeste:</label>
 
             <select id="planet-select" class="rounded-lg p-2" v-model="selectedPlanet">
@@ -274,19 +274,19 @@
           </div>
 
           <!-- Raio 1 -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="raio1" class="text-white">Raio 1 (km):</label>
             <input id="raio1" type="text" class="rounded-lg p-2" />
           </div>
 
           <!-- Raio 2 -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="raio2" class="text-white">Raio 2 (km):</label>
             <input id="raio2" type="text" class="rounded-lg p-2" />
           </div>
 
           <!-- Apogeu -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="apogeu" class="text-white">Apogeu (km):</label>
             <input id="apogeu" type="text" class="rounded-lg p-2" />
           </div>
@@ -366,9 +366,9 @@
       </div>
 
       <!-- Conteúdo da seção -->
-      <div class="flex flex-row">
+      <div class="flex flex-col md:flex-row lg:flex-row">
         <div class="mt-10 flex flex-col gap-4 px-6">
-          <div class="select-planets">
+          <div class="select-planets flex flex-col space-y-2">
             <label for="planet-select" class="mr-4 text-white">Selecione um corpo celeste:</label>
 
             <select id="planet-select" class="rounded-lg p-2" v-model="selectedPlanet">
@@ -390,25 +390,25 @@
           </div>
 
           <!-- Raio 1 -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="raio1" class="text-white">Raio 1 (km):</label>
             <input id="raio1" type="text" class="rounded-lg p-2" />
           </div>
 
           <!-- Raio 2 -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="raio2" class="text-white">Raio 2 (km):</label>
             <input id="raio2" type="text" class="rounded-lg p-2" />
           </div>
 
           <!-- Ângulo 1 -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="graus1" class="text-white">Ângulo 1 (graus):</label>
             <input id="graus1" type="text" class="rounded-lg p-2" />
           </div>
 
           <!-- Ângulo 2 -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="graus2" class="text-white">Ângulo 2 (graus):</label>
             <input id="graus2" type="text" class="rounded-lg p-2" />
           </div>
@@ -486,9 +486,9 @@
       </div>
 
       <!-- Conteúdo da seção -->
-      <div class="flex flex-row">
+      <div class="flex flex-col md:flex-row lg:flex-row">
         <div class="mt-10 flex flex-col gap-4 px-6">
-          <div class="select-planets">
+          <div class="select-planets flex flex-col space-y-2">
             <label for="planet-select" class="mr-4 text-white">Selecione um corpo celeste:</label>
 
             <select id="planet-select" class="rounded-lg p-2" v-model="selectedPlanet">
@@ -510,13 +510,13 @@
           </div>
 
           <!-- Apoastro -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="apoastro" class="text-white">Apoastro (km):</label>
             <input id="apoastro" type="text" class="rounded-lg p-2" />
           </div>
 
           <!-- Periastro -->
-          <div class="mt-4 space-x-3">
+          <div class="mt-4 flex flex-col space-y-2">
             <label for="raio2" class="text-white">Periastro (km):</label>
             <input id="raio2" type="text" class="rounded-lg p-2" />
           </div>
@@ -598,16 +598,16 @@
       </div>
 
       <!-- Conteúdo da seção -->
-      <div class="flex flex-row">
+      <div class="flex flex-col md:flex-row lg:flex-row">
         <div class="mt-10 flex flex-col gap-4 px-6">
-          <div class="select-planets">
+          <div class="select-planets flex flex-col space-y-2">
             <label for="select-1" class="mr-4 text-white">Primeiro corpo celeste:</label>
             <select id="select-1" class="rounded-lg p-2" v-model="selectedBody1" @change="checkForSun">
               <option v-for="body in celestialBodies" :key="body" :value="body">{{ body }}</option>
             </select>
           </div>
 
-          <div class="select-planets">
+          <div class="select-planets flex flex-col space-y-2">
             <label for="select-2" class="mr-4 text-white">Segundo corpo celeste:</label>
             <select id="select-2" class="rounded-lg p-2" v-model="selectedBody2" @change="checkForSun">
               <option v-for="body in celestialBodies" :key="body" :value="body">{{ body }}</option>
