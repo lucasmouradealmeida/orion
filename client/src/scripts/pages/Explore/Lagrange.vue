@@ -354,15 +354,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-/* Transição personalizada */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>
