@@ -1,7 +1,4 @@
-from scipy.integrate import solve_ivp
-from scipy.optimize import fsolve
 import numpy as np
-import matplotlib.pyplot as plt
 
 # Resources
 from server.resources.pouso_lunar_resource import VelocidadesResource

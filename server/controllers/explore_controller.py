@@ -62,3 +62,9 @@ def twolines_controller(ctx: Context):
         },
     }
     return {"titulo": "Two Lines", "app": AppConfig(**config).to_dict()}
+
+
+@bp.route("/groundtrack", methods=["GET"], endpoint="groundtrack")
+@with_context(template="./ground-track.html")
+def ground_track_controller(ctx: Context):
+    return {"titulo": "Ground Track"}

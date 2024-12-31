@@ -19,6 +19,7 @@ def menu(ctx: Context) -> list[Menu] | None:
                     {"name": "Pouso Lunar", "icon": "pousolunar", "url": "/pousolunar"},
                     {"name": "Transferência Orbital", "icon": "transforbital", "url": "/orbital"},
                     {"name": "Pontos de Lagrange", "icon": "pontoslagrange", "url": "/lagrange"},
+                    {"name": "Ground Track", "icon": "groundtrack", "url": "/groundtrack"},
                 ],
             },
         ]
