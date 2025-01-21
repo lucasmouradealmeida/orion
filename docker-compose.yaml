@@ -1,0 +1,30 @@
+services:
+  site-service:
+    build:
+      context: .
+      dockerfile: ./docker/app.dockerfile
+    image: projectorion:latest
+    container_name: site-container
+    command: gunicorn -w 2 'server.web:app' -b '0.0.0.0:5000'
+    restart:
+      on-failure
+      # command: flask run --host=0.0.0.0 --port=5000 --debug
+    ports:
+      - 5000:5000
+    environment:
+      - AMBIENTE=DEV
+      # - LOG_LEVEL=DEBUG
+    volumes:
+      - site-static-volume:/home/non-root/client/public
+    networks:
+      - site-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+volumes:
+  site-static-volume:
+    name: site-static-volume
+
+networks:
+  site-network:
+    name: site-network
+    external: false
